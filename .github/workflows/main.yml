@@ -21,6 +21,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+        pip install nbconvert
+
+    - name: Execute Jupyter Notebook
+      run: |
+        jupyter nbconvert --to notebook --execute "recipe generator and finder.ipynb" --output executed_notebook.ipynb
 
     - name: Success message
-      run: echo "✅ GitHub Actions pipeline ran successfully!"
+      run: echo "✅ Notebook executed successfully!"
